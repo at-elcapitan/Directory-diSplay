@@ -2,7 +2,7 @@
 # by ElCapitan
 pkgname=ds
 _gitname="Directory-diSplay"
-pkgver=v2.0.0
+pkgver=v2.1.0
 pkgrel=5
 arch=('x86_64')
 license=('GPL3')
