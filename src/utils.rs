@@ -52,7 +52,7 @@ pub fn display_help() {
 }
 
 pub fn display_version() {
-    println!("ds (Directory diSplay) 2.1.0");
+    println!("ds (Directory diSplay) 2.1.1");
     println!();
     println!(
         "This is free software; see the source for copying conditions. There is NO"
@@ -79,20 +79,14 @@ pub fn display_top_line(max_length: &usize,
         additional.push_str("PUSER\tGROUP\tOTHER")
     }
 
-    if current_dir_name_len > 0 {
-        let spaces = max_length + 7 - current_dir_name_len;
+    let spaces = max_length + 7 - current_dir_name_len;
 
-        println!(
-            "{}/{}\tTYPE\t\t{}",
-            current_dir_name,
-            " ".repeat(spaces),
-            additional
-        );
-
-        return;
-    }
-
-    println!("./{}  \tTYPE\t\t{}", " ".repeat(max_length + 6), additional);
+    println!(
+        "{}/{}\tTYPE\t\t{}",
+        current_dir_name,
+        " ".repeat(spaces),
+        additional
+    );
 }
 
 pub fn display_objects(
@@ -100,7 +94,7 @@ pub fn display_objects(
         max_length: &usize,
         flag_access: &bool,
         flag_size: &bool,
-        ending: bool
+        final_objects: bool
     ) {
     for (i, obj) in objects.iter().enumerate() {
         let mut flags_data = String::new();
@@ -130,12 +124,12 @@ pub fn display_objects(
 
         let symbol;
 
-        if ending && i == objects.len() - 1 {
+        if final_objects && i == objects.len() - 1 {
             symbol = String::from("└");
         } else {
             symbol = String::from("├");
         }
-
+        
         println!(
             "  {} {}{:<width$}\x1b[0m\t{}\t\t{flags_data}",
             symbol,

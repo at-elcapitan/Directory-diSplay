@@ -38,7 +38,7 @@ fn get_file_type(file: &DirEntry) -> ObjectType {
     
     if filetype.is_dir() {
         ObjectType {
-            type_name: String::from(" DIR"),
+            type_name: String::from("DIR"),
             display_color: String::from("\x1b[34;1m")
         }
     } else if filetype.is_file() 
@@ -56,7 +56,7 @@ fn get_file_type(file: &DirEntry) -> ObjectType {
         }
     } else if filetype.is_symlink() {
         ObjectType {
-            type_name: String::from("SYMLINK"),
+            type_name: String::from("SYML"),
             display_color: String::from("\x1b[31;1m"),
         }
     } else if filetype.is_block_device() {
@@ -71,7 +71,7 @@ fn get_file_type(file: &DirEntry) -> ObjectType {
         }
     } else {
         ObjectType {
-            type_name: String::from("UNKNOWN"),
+            type_name: String::from("UNDEF"),
             display_color: String::from(""),
         }
     }

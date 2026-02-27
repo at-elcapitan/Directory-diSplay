@@ -50,30 +50,30 @@ fn main() -> std::io::Result<()> {
         &parsed_args.full_name
     );
 
-    // Displaying the top line and setting the final size
+    let current_dir_name: Cow<str>;
+    let current_dir_name_len: usize;
+
+    // Setting final max_length value
     if let Some(dir_name) = current_dir.file_name() {
-        let current_dir_name: Cow<str> = dir_name.to_string_lossy();
-
-        let current_dir_name_len: usize = current_dir_name.chars()
-                                                          .count();
-
-        files.max_name_length = files.max_name_length.max(current_dir_name_len);
-        utils::display_top_line(
-            &files.max_name_length, 
-            current_dir_name, 
-            current_dir_name_len, 
-            &parsed_args.access, 
-            &parsed_args.size
-        );
+        current_dir_name = dir_name.to_string_lossy();
+        current_dir_name_len = 
+            current_dir_name.chars()
+                            .count();
+        files.max_name_length = 
+            files.max_name_length.max(current_dir_name_len);
     } else {
-        utils::display_top_line(
-            &files.max_name_length, 
-            Cow::Borrowed(""),
-            0, 
-            &parsed_args.access, 
-            &parsed_args.size
-        );
+        current_dir_name = Cow::Borrowed("");
+        current_dir_name_len = 0;
     }
+
+    // Displaying the top line
+    utils::display_top_line(
+        &files.max_name_length, 
+        current_dir_name, 
+        current_dir_name_len, 
+        &parsed_args.access, 
+        &parsed_args.size
+    );
     
     // Printing empty line
     println!("  │");
