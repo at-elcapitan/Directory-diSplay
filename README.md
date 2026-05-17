@@ -3,15 +3,7 @@
 
 A simple directory tree display application was created to make getting information about a folder easier.
 
-DS as the package is in the arch repository: [raw.githubusercontent.com](https://raw.githubusercontent.com/EICapitan/at-repository/master/x86_64/)
-
 ### Installation
-
-```sh
-mkdir -p directory-display && cd directory-display
-wget https://raw.githubusercontent.com/at-elcapitan/Directory-diSplay/master/PKGBUILD
-makepkg -i
-```
 
 ### Description
 
@@ -41,7 +33,6 @@ Just displaying directory tree:
 ```sh
 ds
 ```
-![image](https://github.com/user-attachments/assets/49404764-3adc-478f-b0e4-3e2dd14f1f21)
 
 Displaying directory tree with file sizes and full names:
 
@@ -54,5 +45,4 @@ or
 ```sh
 ds --size --full-name
 ```
-![image](https://github.com/user-attachments/assets/c5418248-031d-465b-bda3-7c7c6f543a4a)
 
