@@ -21,7 +21,15 @@ func main() {
         return
     }
     
-    print(appState!);
+    if appState?.help == true {
+        displayHelp()
+        return
+    }
+    
+    if appState?.version == true {
+        displayVersion()
+        return
+    }
 }
 
 main()
