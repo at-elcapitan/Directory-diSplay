@@ -10,4 +10,4 @@
 
 ## Reporting a Vulnerability
 
-To report a bug or vulnerability, create a new Issue in the appropriate tab on the project page, or contact me at <work.elcapitan@gmail.com>
+To report a bug or vulnerability, create a new Issue in the appropriate tab on the project page, or contact me at <elcapitan@atproject.com.ua>
