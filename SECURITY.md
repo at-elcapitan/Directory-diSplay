@@ -5,7 +5,7 @@
 | Version | Supported          |
 | ------- | ------------------ |
 | 26.x.x  | :white_check_mark: |
-| 2.1.x   | 🔐 Security Updates Only |
+| 2.1.x   | 🔐 Patches only    |
 | 1.x.x   | :x:                |
 
 ## Reporting a Vulnerability
