@@ -7,10 +7,6 @@
 
 import Foundation
 
-enum AppStateErrors: Error {
-    case UnknownArgument(String)
-}
-
 public struct ApplicationState {
     public var help: Bool
     public var version: Bool
