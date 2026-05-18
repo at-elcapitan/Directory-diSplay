@@ -12,6 +12,13 @@ public struct Format {
     public var shortName: String
 }
 
+public func getDirName(directoryPath: String) -> String {
+    let directoryURL = URL(
+        fileURLWithPath: directoryPath
+    )
+    return directoryURL.lastPathComponent
+}
+
 public func fmt_size(size: Double) -> Format {
     let KB = 1024.0
     let MB = KB * 1024.0
@@ -45,7 +52,7 @@ public func displayHelp() {
 }
 
 public func displayVersion() {
-    print("ds (Directory diSplay) 26.0 for macOS");
+    print("ds (Directory diSplay) 26.0 beta 1 for macOS");
     print();
     print(
         "This is free software; see the source for copying conditions. There is NO"
@@ -59,12 +66,9 @@ public func displayVersion() {
 
 public func displayFirstLine(
     maxLength: Int,
-    currDirName: String,
-    currDirNameLen: Int,
-    flagAccess: Bool,
-    flagSize: Bool
+    appState: ApplicationState
 ) {
-    var additional: String = ""
+    //var additional: String = ""
     
     // TODO: at v26.1
     // if flagSize {
@@ -77,12 +81,12 @@ public func displayFirstLine(
     
     let spacing = String(
         repeating: " ",
-        count: maxLength + 7 - currDirNameLen
+        count: maxLength + 7 - appState.directory.count
     )
+    let directoryName = getDirName(directoryPath: appState.directory)
     
-    print("\(currDirName)/\(spacing)\tTYPE\t\t\(additional)")
+    print("\(directoryName)/\(spacing)") // \tTYPE\t\t\(additional)")
 }
-
 
 // public func displayObjects(
 //    objects:
